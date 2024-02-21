@@ -6,7 +6,7 @@ const ScrollButton = () => {
 
   const toggleVisible = () => {
     const scrolled = document.documentElement.scrollTop;
-    setVisible(scrolled > 850);
+    setVisible(scrolled > 750);
   };
 
   const scrollToTop = () => {

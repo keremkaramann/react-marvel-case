@@ -20,7 +20,7 @@ const HeroList = () => {
           alt="Marvel Logo"
         />
       </div>
-      <form className="flex gap-5 mt-10 justify-center items-center">
+      <form className="flex gap-5 mt-10 justify-center items-center flex-wrap">
         <label htmlFor="site-search" className="text-3xl text-white">
           Search for heroes:
         </label>
@@ -29,7 +29,7 @@ const HeroList = () => {
           id="site-search"
           name="q"
           placeholder="search"
-          className="text-xl border-2 p-2 rounded-xl shadow-2xl shadow-sky-950"
+          className="text-xl border-2 p-2 rounded-xl shadow-xl shadow-sky-800"
         />
         <button
           className="py-3 px-8 text-white font-xl border-2 border-red-700 rounded-xl
@@ -39,7 +39,7 @@ const HeroList = () => {
         </button>
       </form>
       //carItems
-      <div className="flex justify-center flex-wrap gap-5 items-center mt-12 max-w-[1500px] mx-auto">
+      <div className="flex justify-center flex-wrap gap-8 items-center mt-12 max-w-[1500px] mx-auto px-4">
         {heroes &&
           heroes?.map((hero) => {
             const { id, name, thumbnail } = hero;

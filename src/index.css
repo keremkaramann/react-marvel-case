@@ -12,5 +12,6 @@
 @layer base {
   html {
     font-family: "Gemunu Libre", sans-serif;
+    background-color: #020617;
   }
 }

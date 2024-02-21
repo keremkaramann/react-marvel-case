@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CardItem from "./CardItem";
+import { Link } from "react-router-dom";
 import { fetchHeroes } from "../store/actions/characterListReducerAction";
 
 const HeroList = () => {
@@ -39,14 +40,24 @@ const HeroList = () => {
         </button>
       </form>
       //carItems
-      <div className="flex justify-center flex-wrap gap-10 items-center mt-12 max-w-[1200px] mx-auto px-4">
-        {heroes &&
+      <div className="flex justify-center flex-wrap gap-10 items-center mt-10 max-w-[1200px] mx-auto px-4">
+        {heroes?.length > 0 ? (
           heroes?.map((hero) => {
             const { id, name, thumbnail } = hero;
-            return <CardItem key={id} name={name} thumbnail={thumbnail} />;
-          })}
+            return (
+              <Link to={`/detail/${id}`} key={id}>
+                <CardItem name={name} thumbnail={thumbnail} />;
+              </Link>
+            );
+          })
+        ) : (
+          <div className="bg-slate-950 mt-12">
+            <div className="border-gray-300 h-20 w-20 animate-spin rounded-full border-8 border-t-red-500" />
+          </div>
+        )}
       </div>
     </section>
   );
 };
+
 export default HeroList;

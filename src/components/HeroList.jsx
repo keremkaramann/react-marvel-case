@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import CardItem from "./CardItem";
 import { Link } from "react-router-dom";
 import { fetchHeroes } from "../store/actions/characterListReducerAction";
-
+import ScrollToTop from "../components/ScrollToTop";
 const HeroList = () => {
   const dispatch = useDispatch();
   const heroes = useSelector((store) => store.heroList?.heroes?.data?.results);
@@ -14,6 +14,7 @@ const HeroList = () => {
 
   return (
     <section className="bg-slate-950">
+      <ScrollToTop />
       <div className="flex justify-center">
         <img
           src="../../public/marvelLogo.png"

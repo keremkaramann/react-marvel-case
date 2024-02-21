@@ -1,21 +1,25 @@
 import axios from "axios";
+import md5 from "md5";
 export const FETCH_HEROES = "FETCH_HEROES";
 
-const date = Date.now().toString;
 const baseUrl = `${import.meta.env.VITE_BASE_URL}/v1/public/characters`;
 const publicKey = import.meta.env.VITE_PUBLIC_API;
 const privateKey = import.meta.env.VITE_PRIVATE_API;
-const hash = getHash();
-let url = ``;
 
 export const setHeroes = (data) => ({
   type: FETCH_HEROES,
   payload: data,
 });
 
-export const fetchRoles = () => () => {
+export const fetchHeroes = () => (dispatch) => {
+  const limit = 30;
+  const offset = 0;
+  const ts = Date.now().toString;
+  const hash = md5(`${ts}${privateKey}${publicKey}`);
+  const url = `${baseUrl}?ts=${ts}&apikey=${publicKey}&hash=${hash}&limit=${limit}&offset=${offset}`;
+
   axios
-    .get("roles")
+    .get(url)
     .then((res) => {
       dispatch(setHeroes(res.data));
     })

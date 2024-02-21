@@ -1,8 +1,16 @@
 import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import CardItem from "./CardItem";
+import { fetchHeroes } from "../store/actions/characterListReducerAction";
 
 const HeroList = () => {
-  useEffect(() => {}, []);
+  const dispatch = useDispatch();
+  const heroes = useSelector((store) => store.heroList?.heroes?.data?.results);
+
+  useEffect(() => {
+    dispatch(fetchHeroes());
+  }, []);
+
   return (
     <section>
       <div className="flex justify-center">
@@ -30,8 +38,12 @@ const HeroList = () => {
           Search
         </button>
       </form>
-      <div className="flex justify-center items-center mt-12">
-        <CardItem />
+      <div className="flex justify-center flex-wrap gap-5 items-center mt-12">
+        {heroes &&
+          heroes?.map((hero) => {
+            const { id, name, thumbnail } = hero;
+            return <CardItem key={id} />;
+          })}
       </div>
     </section>
   );

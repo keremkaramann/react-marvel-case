@@ -1,8 +1,9 @@
 const CardItem = ({ name, thumbnail }) => {
   return (
     <div
-      className="rounded-xl shadow-lg mt-10 mb-10 
-    hover:scale-105 duration-300 ease-in-out cursor-pointer w-72 h-96"
+      className="rounded-3xl shadow-lg mt-10 mb-10 
+    hover:scale-105 duration-300 ease-in-out cursor-pointer 
+    w-72 h-96 hover:shadow-sky-950 bg-slate-300"
     >
       <img
         src={`${thumbnail.path}.${thumbnail.extension}`}

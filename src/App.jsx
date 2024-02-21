@@ -7,7 +7,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<HeroList />} />
-      <Route path="/herodetail:id" element={<HeroDetail />} />
+      <Route path="/detail:id" element={<HeroDetail />} />
       <Route path="*" element={<ErrorPage />} />
     </Routes>
   );

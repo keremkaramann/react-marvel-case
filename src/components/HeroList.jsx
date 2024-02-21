@@ -39,7 +39,7 @@ const HeroList = () => {
         </button>
       </form>
       //carItems
-      <div className="flex justify-center flex-wrap gap-8 items-center mt-12 max-w-[1500px] mx-auto px-4">
+      <div className="flex justify-center flex-wrap gap-10 items-center mt-12 max-w-[1200px] mx-auto px-4">
         {heroes &&
           heroes?.map((hero) => {
             const { id, name, thumbnail } = hero;

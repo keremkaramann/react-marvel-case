@@ -4,6 +4,7 @@ import CardItem from "./CardItem";
 import { Link } from "react-router-dom";
 import { fetchHeroes } from "../store/actions/characterListReducerAction";
 import ScrollToTop from "../components/ScrollToTop";
+
 const HeroList = () => {
   const dispatch = useDispatch();
   const heroes = useSelector((store) => store.heroList?.heroes?.data?.results);

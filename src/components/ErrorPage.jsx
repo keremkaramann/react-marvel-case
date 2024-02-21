@@ -3,7 +3,7 @@ import error from "../lottie/errorAnimation.json";
 import { Link } from "react-router-dom";
 const ErrorPage = () => {
   return (
-    <div className="">
+    <div className="bg-white">
       <div className="flex justify-center pt-8">
         <Link
           className="font-bold text-3xl border-2 p-2 

@@ -15,12 +15,12 @@ const HeroList = () => {
     <section className="bg-slate-950">
       <div className="flex justify-center">
         <img
-          src="../../public/desktop-wallpaper-marvel-heroes-marvel-heroes-for-v-marvel-logo.jpg"
-          className="h-56"
+          src="../../public/marvelLogo.png"
+          className="h-80"
           alt="Marvel Logo"
         />
       </div>
-      <form className="flex gap-5 mt-10 justify-center items-center flex-wrap">
+      <form className="flex gap-5 justify-center items-center flex-wrap">
         <label htmlFor="site-search" className="text-3xl text-white">
           Search for heroes:
         </label>

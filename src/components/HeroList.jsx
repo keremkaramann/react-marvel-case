@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import CardItem from "./CardItem";
 
 const HeroList = () => {
   useEffect(() => {}, []);
@@ -11,7 +12,7 @@ const HeroList = () => {
           alt="Marvel Logo"
         />
       </div>
-      <form className="flex gap-5 mt-5 justify-center items-center">
+      <form className="flex gap-5 mt-10 justify-center items-center">
         <label htmlFor="site-search" className="text-3xl">
           Search for heroes:
         </label>
@@ -29,6 +30,9 @@ const HeroList = () => {
           Search
         </button>
       </form>
+      <div className="flex justify-center items-center mt-12">
+        <CardItem />
+      </div>
     </section>
   );
 };

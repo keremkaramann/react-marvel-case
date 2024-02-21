@@ -1,8 +1,12 @@
 import axios from "axios";
 export const FETCH_HEROES = "FETCH_HEROES";
 
-const BASE_URL = import.meta.env.VITE_BASE_URL;
-console.log(BASE_URL);
+const date = Date.now().toString;
+const baseUrl = `${import.meta.env.VITE_BASE_URL}/v1/public/characters`;
+const publicKey = import.meta.env.VITE_PUBLIC_API;
+const privateKey = import.meta.env.VITE_PRIVATE_API;
+const hash = getHash();
+let url = ``;
 
 export const setHeroes = (data) => ({
   type: FETCH_HEROES,

@@ -38,11 +38,11 @@ const HeroList = () => {
           Search
         </button>
       </form>
-      <div className="flex justify-center flex-wrap gap-5 items-center mt-12">
+      <div className="flex justify-center flex-wrap gap-5 items-center mt-12 max-w-[1500px] mx-auto">
         {heroes &&
           heroes?.map((hero) => {
             const { id, name, thumbnail } = hero;
-            return <CardItem key={id} />;
+            return <CardItem key={id} name={name} thumbnail={thumbnail} />;
           })}
       </div>
     </section>

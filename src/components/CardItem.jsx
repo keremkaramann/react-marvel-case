@@ -1,13 +1,16 @@
-const CardItem = () => {
+const CardItem = ({ name, thumbnail }) => {
   return (
-    <div className="rounded-xl shadow-lg mt-10 mb-10 hover:scale-105 duration-300 ease-in-out cursor-pointer">
+    <div
+      className="rounded-xl shadow-lg mt-10 mb-10 
+    hover:scale-105 duration-300 ease-in-out cursor-pointer w-72 h-96"
+    >
       <img
-        src="../../public/standard_incredible.jpg"
+        src={`${thumbnail.path}.${thumbnail.extension}`}
         alt=""
-        className="w-72 rounded-t-xl"
+        className="rounded-t-xl h-3/4 w-full"
       />
       <div className="flex justify-between items-center font-bold">
-        <p className="text-3xl mt-5 mb-5 ml-2">DeadPool</p>
+        <p className="text-2xl mt-5 mb-5 ml-2">{name}</p>
         <p className="mr-2">Click for details...</p>
       </div>
     </div>

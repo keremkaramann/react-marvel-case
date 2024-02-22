@@ -40,7 +40,9 @@ const HeroDetail = () => {
               : foundHero?.description}
           </p>
           <div>
-            <h2 className="text-2xl font-bold mb-3 text-red-500">Comics :</h2>
+            <h2 className="text-2xl font-bold mb-3 text-red-500 mt-5">
+              Comics :
+            </h2>
             {foundHero?.comics?.items
               .sort((a, b) => {
                 const getYear = (comic) => {

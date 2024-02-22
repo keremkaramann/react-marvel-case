@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { IoReturnUpBack } from "react-icons/io5";
+
 const HeroDetail = () => {
   const { id } = useParams();
 
@@ -40,13 +41,25 @@ const HeroDetail = () => {
           </p>
           <div>
             <h2 className="text-2xl font-bold mb-3 text-red-500">Comics :</h2>
-            {foundHero?.comics?.items.map((comic, index) => {
-              return (
-                <ul className="flex flex-col justify-center gap-10" key={index}>
-                  <li>{comic.name}</li>
-                </ul>
-              );
-            })}
+            {foundHero?.comics?.items
+              .sort((a, b) => {
+                const getYear = (comic) => {
+                  const match = comic.name.match(/\((\d{4})\)/);
+                  return match ? parseInt(match[1]) : 0;
+                };
+
+                return getYear(b) - getYear(a);
+              })
+              .map((comic, index) => {
+                return (
+                  <ul
+                    className="flex flex-col justify-center gap-10"
+                    key={index}
+                  >
+                    <li>{comic.name}</li>
+                  </ul>
+                );
+              })}
           </div>
         </div>
       </div>

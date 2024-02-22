@@ -6,11 +6,6 @@ const baseUrl = `${import.meta.env.VITE_BASE_URL}/v1/public/characters`;
 const publicKey = import.meta.env.VITE_PUBLIC_API;
 const privateKey = import.meta.env.VITE_PRIVATE_API;
 
-//for vercel
-/* const baseUrl = `${process.env.VITE_BASE_URL}/v1/public/characters`;
-const publicKey = process.env.VITE_PUBLIC_API;
-const privateKey = process.env.VITE_PRIVATE_API; */
-
 export const setHeroes = (data) => ({
   type: FETCH_HEROES,
   payload: data,

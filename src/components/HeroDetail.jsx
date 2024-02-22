@@ -10,7 +10,7 @@ const HeroDetail = () => {
   const foundHero = heroes?.find((hero) => hero.id == id);
 
   return (
-    <section className="text-white mb-10">
+    <section className="text-white mb-2">
       <div className="flex justify-evenly flex-wrap gap-10">
         <div className="border-2 border-red-600 rounded-full w-2/6 h-1/2 mt-10 ml-5">
           <img

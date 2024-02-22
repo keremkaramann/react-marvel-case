@@ -10,19 +10,21 @@ import ScrollToTop from "../components/ScrollToTop";
 const HeroList = () => {
   const dispatch = useDispatch();
   const [searchHero, setSearchHero] = useState("");
-  const [items, setItems] = useState([]);
   const [hasMore, setHasMore] = useState(true);
-  const [index, setIndex] = useState(2);
+  const [limit, setLimit] = useState(30);
+  const [offset, setOffset] = useState(30);
   const heroes = useSelector((store) => store.heroList?.heroes?.data?.results);
 
   const handleSearch = (e) => {
     e.preventDefault();
     dispatch(fetchHeroes(searchHero));
   };
-
+  const fetchMoreData = () => {
+    setLimit(limit + 30);
+  };
   useEffect(() => {
-    dispatch(fetchHeroes());
-  }, []);
+    dispatch(fetchHeroes(searchHero, limit));
+  }, [limit]);
 
   return (
     <section className="bg-slate-950">
@@ -51,7 +53,7 @@ const HeroList = () => {
         />
         <button
           className="py-3 px-8 text-white font-xl border-2 border-red-700 rounded-xl
-         bg-red-700 hover:text-red-700 hover:bg-white duration-500 ease-in-out"
+          bg-red-700 hover:text-red-700 hover:bg-white duration-500 ease-in-out"
           onClick={handleSearch}
         >
           Search
@@ -59,24 +61,29 @@ const HeroList = () => {
       </form>
       //carItems
       <InfiniteScroll
-        dataLength={items.length}
-        //next={fetchMoreData}
+        dataLength={heroes?.length || 0}
+        style={{ overflowY: "hidden" }}
+        next={fetchMoreData}
         hasMore={hasMore}
-        loader={<Loader />}
-      >
-        <div className="flex justify-center flex-wrap gap-10 items-center mt-10 max-w-[1200px] mx-auto px-4">
-          {heroes?.length > 0 ? (
-            heroes?.map((hero) => {
-              const { id, name, thumbnail } = hero;
-              return (
-                <Link to={`/detail/${id}`} key={id}>
-                  <CardItem name={name} thumbnail={thumbnail} />;
-                </Link>
-              );
-            })
-          ) : (
+        loader={
+          <div className="flex justify-center">
             <Loader />
-          )}
+          </div>
+        }
+        endMessage={<p>You have seen it all</p>}
+      >
+        <div
+          className="flex justify-center flex-wrap gap-10 items-center
+          mt-8 max-w-[1200px] mx-auto px-4"
+        >
+          {heroes?.map((hero) => {
+            const { id, name, thumbnail } = hero;
+            return (
+              <Link to={`/detail/${id}`} key={id}>
+                <CardItem name={name} thumbnail={thumbnail} />;
+              </Link>
+            );
+          })}
         </div>
       </InfiniteScroll>
     </section>

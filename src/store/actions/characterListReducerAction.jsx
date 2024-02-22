@@ -11,9 +11,9 @@ export const setHeroes = (data) => ({
   payload: data,
 });
 
-export const fetchHeroes = (searchHero) => (dispatch) => {
-  const limit = 30;
+export const fetchHeroes = (searchHero, limit) => (dispatch) => {
   const offset = 0;
+
   const ts = Date.now().toString();
   const hash = md5(`${ts}${privateKey}${publicKey}`);
 
@@ -31,6 +31,6 @@ export const fetchHeroes = (searchHero) => (dispatch) => {
       dispatch(setHeroes(res.data));
     })
     .catch((err) => {
-      console.error("Error fetching roles: ", err);
+      console.error("Error fetching roles: ", err.message);
     });
 };

@@ -8,7 +8,6 @@ const heroList = (state = globalInitialState, action) => {
   switch (action.type) {
     case FETCH_HEROES:
       return { ...state, heroes: action.payload };
-
     default:
       return state;
   }

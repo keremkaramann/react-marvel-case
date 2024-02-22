@@ -12,7 +12,6 @@ const HeroList = () => {
   const [searchHero, setSearchHero] = useState("");
   const [hasMore, setHasMore] = useState(true);
   const [limit, setLimit] = useState(30);
-  const [offset, setOffset] = useState(30);
   const heroes = useSelector((store) => store.heroList?.heroes?.data?.results);
 
   const handleSearch = (e) => {

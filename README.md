@@ -1,8 +1,22 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+-Proje Açıklaması
 
-Currently, two official plugins are available:
+Marvel Heroes, çeşitli Marvel süper kahramanları hakkında veri getirmek için Marvel API'sini kullanan küçük ölçekli bir projedir. Bu uygulamayla kullanıcılar, isimleri ve ilgili görsellerle birlikte marvel kahramanlarına göz atabilir. Arama çubuğundan, kullanıcılar en sevdikleri kahramanları kolayca bulmalabilir. React ve Redux tarafından desteklenen uygulama aynı zamanda infinite scroll gibi gelişmiş özellikleri de bünyesinde barındıran bir tarama deneyimi sağlar. Ek olarak kullanıcılar, ilgili kartlara tıklayarak her bir kahramanın ayrıntılarını daha derinlemesine inceleyebilir ve resimler, açıklamalar ve kahramanın yer aldığı çizgi roman listesi dahil olmak üzere ayrıntılı bilgileri göz atabilir.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-Kullanılan Teknolojiler:
+
+-ReactVite
+-Redux
+-Redux Logger
+-Redux Thunk
+-Tailwind CSS
+-react-infinite-scroll-component
+-react-icons
+-lottie-react
+-Axios
+-react-router-dom
+
+-Yüklemek için
+npm i
+private ve public api lazım : https://developer.marvel.com/

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchHeroes } from "../store/actions/characterListReducerAction";
+import marvelLogo from "../../public/marvelLogo.png";
 //components
 import Loader from "./Loader";
 import CardItem from "./CardItem";
@@ -31,11 +32,7 @@ const HeroList = () => {
     <section className="bg-slate-950">
       <ScrollToTop />
       <div className="flex justify-center">
-        <img
-          src="../../public/marvelLogo.png"
-          className="h-80"
-          alt="Marvel Logo"
-        />
+        <img src={marvelLogo} className="h-80" alt="Marvel Logo" />
       </div>
       <form className="flex gap-5 justify-center items-center flex-wrap">
         <label htmlFor="site-search" className="text-3xl text-white">

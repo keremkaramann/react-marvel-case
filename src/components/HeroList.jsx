@@ -35,7 +35,11 @@ const HeroList = () => {
         <img src={marvelLogo} className="h-80" alt="Marvel Logo" />
       </div>
       <form className="flex gap-5 justify-center items-center flex-wrap">
-        <label htmlFor="site-search" className="text-3xl text-white">
+        <label
+          htmlFor="site-search"
+          className="text-3xl text-white"
+          data-cy="label-title"
+        >
           Search for heroes:
         </label>
         <input
@@ -48,6 +52,7 @@ const HeroList = () => {
           onChange={(e) => {
             setSearchHero(e.target.value);
           }}
+          data-cy="input-field"
         />
         <button
           className="py-3 px-8 text-white font-xl border-2 border-red-700 rounded-xl

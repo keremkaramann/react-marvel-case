@@ -16,6 +16,7 @@ Marvel Heroes, çeşitli Marvel süper kahramanları hakkında veri getirmek iç
 - lottie-react
 - Axios
 - react-router-dom
+- cypress(test)
 
 ##Yüklemek için
 npm i -

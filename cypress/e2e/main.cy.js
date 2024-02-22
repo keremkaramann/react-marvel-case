@@ -1,4 +1,4 @@
-describe("Just visit e2e test", () => {
+describe("should visit main page", () => {
   beforeEach(() => {
     cy.visit("/");
   });
@@ -13,5 +13,14 @@ describe("Just visit e2e test", () => {
     cy.get('[data-cy="input-field"]')
       .type(userInput)
       .should("have.value", userInput);
+
+    cy.get('[data-cy="search-btn"]').click();
+
+    cy.get('[href="/detail/1009268"] > .rounded-t-3xl > .rounded-t-xl').click();
+
+    cy.get('[data-cy="detail-header"]').should(
+      "have.text",
+      "Hero Name: Deadpool"
+    );
   });
 });

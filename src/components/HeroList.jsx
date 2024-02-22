@@ -58,6 +58,7 @@ const HeroList = () => {
           className="py-3 px-8 text-white font-xl border-2 border-red-700 rounded-xl
           bg-red-700 hover:text-red-700 hover:bg-white duration-500 ease-in-out"
           onClick={handleSearch}
+          data-cy="search-btn"
         >
           Search
         </button>

@@ -29,7 +29,7 @@ const HeroDetail = () => {
               <IoReturnUpBack className="text-xl" />
             </Link>
           </div>
-          <h1 className="font-bold text-3xl mb-3">
+          <h1 className="font-bold text-3xl mb-3" data-cy="detail-header">
             Hero Name:{" "}
             {foundHero?.name?.length === 0 ? "Not Found" : foundHero?.name}
           </h1>

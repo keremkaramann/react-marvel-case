@@ -10,7 +10,7 @@ const CardItem = ({ name, thumbnail }) => {
         alt=""
         className="rounded-t-xl h-3/4 w-full"
       />
-      <div className="flex justify-between items-center font-bold">
+      <div className="flex justify-between items-center font-bold border-t-4 border-black">
         <p className="text-2xl mt-5 mb-5 ml-2">{name}</p>
         <p className="mr-2">Click for details...</p>
       </div>

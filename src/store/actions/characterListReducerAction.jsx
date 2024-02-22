@@ -11,15 +11,22 @@ export const setHeroes = (data) => ({
   payload: data,
 });
 
-export const fetchHeroes = () => (dispatch) => {
+export const fetchHeroes = (searchHero) => (dispatch) => {
   const limit = 30;
   const offset = 0;
-  const ts = Date.now().toString;
+  const ts = Date.now().toString();
   const hash = md5(`${ts}${privateKey}${publicKey}`);
-  const url = `${baseUrl}?ts=${ts}&apikey=${publicKey}&hash=${hash}&limit=${limit}&offset=${offset}`;
+
+  let requestUrl;
+
+  if (searchHero) {
+    requestUrl = `${baseUrl}?ts=${ts}&apikey=${publicKey}&hash=${hash}&nameStartsWith=${searchHero}`;
+  } else {
+    requestUrl = `${baseUrl}?ts=${ts}&apikey=${publicKey}&hash=${hash}&limit=${limit}&offset=${offset}`;
+  }
 
   axios
-    .get(url)
+    .get(requestUrl)
     .then((res) => {
       dispatch(setHeroes(res.data));
     })

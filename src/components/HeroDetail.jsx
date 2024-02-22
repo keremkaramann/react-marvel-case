@@ -47,7 +47,6 @@ const HeroDetail = () => {
                   const match = comic.name.match(/\((\d{4})\)/);
                   return match ? parseInt(match[1]) : 0;
                 };
-
                 return getYear(b) - getYear(a);
               })
               .map((comic, index) => {

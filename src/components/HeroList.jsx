@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CardItem from "./CardItem";
 import { Link } from "react-router-dom";
@@ -7,7 +7,13 @@ import ScrollToTop from "../components/ScrollToTop";
 
 const HeroList = () => {
   const dispatch = useDispatch();
+  const [searchHero, setSearchHero] = useState("");
   const heroes = useSelector((store) => store.heroList?.heroes?.data?.results);
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    dispatch(fetchHeroes(searchHero));
+  };
 
   useEffect(() => {
     dispatch(fetchHeroes());
@@ -33,10 +39,15 @@ const HeroList = () => {
           name="q"
           placeholder="search"
           className="text-xl border-2 p-2 rounded-xl shadow-xl shadow-sky-800"
+          value={searchHero}
+          onChange={(e) => {
+            setSearchHero(e.target.value);
+          }}
         />
         <button
           className="py-3 px-8 text-white font-xl border-2 border-red-700 rounded-xl
          bg-red-700 hover:text-red-700 hover:bg-white duration-500 ease-in-out"
+          onClick={handleSearch}
         >
           Search
         </button>

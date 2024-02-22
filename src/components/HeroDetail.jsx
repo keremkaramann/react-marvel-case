@@ -20,7 +20,7 @@ const HeroDetail = () => {
           />
         </div>
         <div className="px-5">
-          <div className="mt-20 mb-5 border rounded-full w-[100px]">
+          <div className="mt-20 mb-5 border rounded-full w-[120px]">
             <Link
               to={"/"}
               className="flex items-center gap-3 justify-center p-2 font-bold"
@@ -31,7 +31,7 @@ const HeroDetail = () => {
           </div>
           <h1 className="font-bold text-3xl mb-3">
             Hero Name:{" "}
-            {foundHero?.name.length === 0 ? "Not Found" : foundHero?.name}
+            {foundHero?.name?.length === 0 ? "Not Found" : foundHero?.name}
           </h1>
           <p className="text-2xl max-w-[600px]">
             Description:{" "}
@@ -52,10 +52,10 @@ const HeroDetail = () => {
               .map((comic, index) => {
                 return (
                   <ul
-                    className="flex flex-col justify-center gap-10"
+                    className="flex flex-col justify-center gap-10 mb-2"
                     key={index}
                   >
-                    <li>{comic.name}</li>
+                    <li>{comic?.name}</li>
                   </ul>
                 );
               })}

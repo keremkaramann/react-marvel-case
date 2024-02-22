@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import CardItem from "./CardItem";
-import Loader from "./Loader";
 import { Link } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchHeroes } from "../store/actions/characterListReducerAction";
+//components
+import Loader from "./Loader";
+import CardItem from "./CardItem";
 import ScrollToTop from "../components/ScrollToTop";
 
 const HeroList = () => {
@@ -17,6 +18,7 @@ const HeroList = () => {
   const handleSearch = (e) => {
     e.preventDefault();
     dispatch(fetchHeroes(searchHero));
+    setHasMore(false);
   };
   const fetchMoreData = () => {
     setLimit(limit + 30);
@@ -58,7 +60,6 @@ const HeroList = () => {
           Search
         </button>
       </form>
-      //carItems
       <InfiniteScroll
         dataLength={heroes?.length || 0}
         style={{ overflowY: "hidden" }}

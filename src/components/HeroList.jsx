@@ -61,5 +61,4 @@ const HeroList = () => {
     </section>
   );
 };
-
 export default HeroList;

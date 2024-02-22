@@ -1,13 +1,18 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CardItem from "./CardItem";
+import Loader from "./Loader";
 import { Link } from "react-router-dom";
+import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchHeroes } from "../store/actions/characterListReducerAction";
 import ScrollToTop from "../components/ScrollToTop";
 
 const HeroList = () => {
   const dispatch = useDispatch();
   const [searchHero, setSearchHero] = useState("");
+  const [items, setItems] = useState([]);
+  const [hasMore, setHasMore] = useState(true);
+  const [index, setIndex] = useState(2);
   const heroes = useSelector((store) => store.heroList?.heroes?.data?.results);
 
   const handleSearch = (e) => {
@@ -53,22 +58,27 @@ const HeroList = () => {
         </button>
       </form>
       //carItems
-      <div className="flex justify-center flex-wrap gap-10 items-center mt-10 max-w-[1200px] mx-auto px-4">
-        {heroes?.length > 0 ? (
-          heroes?.map((hero) => {
-            const { id, name, thumbnail } = hero;
-            return (
-              <Link to={`/detail/${id}`} key={id}>
-                <CardItem name={name} thumbnail={thumbnail} />;
-              </Link>
-            );
-          })
-        ) : (
-          <div className="bg-slate-950 mt-12">
-            <div className="border-gray-300 h-20 w-20 animate-spin rounded-full border-8 border-t-red-500" />
-          </div>
-        )}
-      </div>
+      <InfiniteScroll
+        dataLength={items.length}
+        //next={fetchMoreData}
+        hasMore={hasMore}
+        loader={<Loader />}
+      >
+        <div className="flex justify-center flex-wrap gap-10 items-center mt-10 max-w-[1200px] mx-auto px-4">
+          {heroes?.length > 0 ? (
+            heroes?.map((hero) => {
+              const { id, name, thumbnail } = hero;
+              return (
+                <Link to={`/detail/${id}`} key={id}>
+                  <CardItem name={name} thumbnail={thumbnail} />;
+                </Link>
+              );
+            })
+          ) : (
+            <Loader />
+          )}
+        </div>
+      </InfiniteScroll>
     </section>
   );
 };

@@ -2,12 +2,16 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { IoReturnUpBack } from "react-icons/io5";
-
+import ErrorPage from "./ErrorPage";
 const HeroDetail = () => {
   const { id } = useParams();
 
   const heroes = useSelector((store) => store.heroList?.heroes?.data?.results);
   const foundHero = heroes?.find((hero) => hero.id == id);
+
+  if (!foundHero) {
+    return <ErrorPage />;
+  }
 
   return (
     <section className="text-white mb-2">
